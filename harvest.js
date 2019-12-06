@@ -153,11 +153,19 @@ const IsInARTCC = (client) => {
     //use this method for filtering
 
     //check to see departure or arrival is in ZAB Class B, C, or D
-    if (ZABAirports.includes(client.planned_depairport) || ZABAirports.includes(client.planned_destairport)){
-        return true;
-    }else{
-        return false;
-    }
+    switch(client.planned_destairport || client.planned_destairport || client.planned_altairport)
+            {
+                case "KDFW":
+                case "KDAL":
+                case "KOKC":
+                case "KLBB":                       
+                    console.log("Clients: " + client.callsign 
+                        + "\nPlanned Departure Airport: " + client.planned_depairport 
+                        + "\nPlanned Destination Airport: " + client.planned_destairport 
+                        + "\nPlanned Alternate Airport: " + client.planned_altairport);
+            }
+
+    return true;
 }
 
 const writeClientModelListToPersist = (client_list) => {

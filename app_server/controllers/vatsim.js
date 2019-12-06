@@ -1,6 +1,9 @@
 const request = require('request');
+
+const selected_port = process.env.PORT || '3000';
+
 const apiOptions = {
-  server: 'http://localhost:3000'
+  server: 'http://localhost:3000' + selected_port
 };
 
 const Airports = [
